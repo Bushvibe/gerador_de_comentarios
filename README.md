@@ -5,13 +5,19 @@ apenas para demonstrar!
 `232`
 `206`
 `generated gostei video maneiro das gostei`
+
 `generated esteve video demais eletricidade legal`
+
 `generated esteve video do gostei demais`
+
 `generated gostei esteve foi video demais`
 
 `test esteve indo das eles daora`
+
 `test fazer foi adorar maneiro daora`
+
 `test latas no legal do demais`
+
 `test carros eletricidade sim video demais`
 
 `[Program finished]`
@@ -19,25 +25,43 @@ apenas para demonstrar!
 Depois de algumas dezenas de tentativas e gerações....
 
 `316`
+
 `271`
+
 `generated gostei video do correto legal`
+
 `generated gostei video no esteve gostei`
+
 `generated gostei video no maneiro demais`
+
 `generated gostei maneiro bom video legal`
+
 `generated gostei video indo foi legal`
+
 `generated gostei video indo carros legal`
+
 `generated gostei video como daora`
+
 `generated gostei video indo dos gostei`
+
 `generated gostei video carros como gostei`
 
 `test tecnica bom gostei do`
+
 `test sim legal rever ta bom`
-`test rever não esteve legal`
+
+`test erever não esteve legal`
+
 `test bom esteve marcado bom`
+
 `test valeu video correto do gostei`
+
 `test na adorar no não gostei`
+
 `test não sim eles ligações legal`
+
 `test esteve qualidade correto do legal`
+
 `test não gostei no correto muito bom`
 
 `[Program finished]`
