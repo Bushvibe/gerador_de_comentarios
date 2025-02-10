@@ -1,188 +1,121 @@
+fg = open("/storage/emulated/0/comentarios/dicionário.txt")
 
-import random as rmod
-leng = 12
+DIC = fg.read().split("\n")
 
+#print(DIC)
+#exit(0)
+import random
+gends = open("/storage/emulated/0/comentarios/good_ends.txt")
 
-goodf = open("/storage/emulated/0/comentarios/good.txt");
+gendslist = gends.read().split("\n")
 
-badf = open("/storage/emulated/0/comentarios/bad.txt");
-
-dic = open("/storage/emulated/0/comentarios/dicionário.txt");
-
-def is_good():
-     r = 0;
-     
-     return r;
-     
-     
-     
-def is_bad():
-    r = 0
-    return r;
-
-k  = goodf.read().split("\n");
-n = badf.read().split("\n");
-j = dic.read().split("\n");
-
-
-def rf():
-     return rmod.randint(0, len(j) - 1);
-
-
-tendencias = "telefone value gostei";
-tendencia_len = tendencias.split(" ");
-
-
-def count_tendencias(tendencias, texts):
-    r = 0
-    for k in tendencias:
-        #rev = k in texts;
-        if texts.find(k) == -1:
-            r = r + 1
-    return r
-
-
-def generate():
-    r1 = "";
-    has = False
-    for n in range(leng):
-        nw = j[rf()];
-        if r1.find(nw) != -1:
-            has = True
-        r1 = r1 + j[rf()] + " "
+def good_end():
     
-    if (has):
-        generate()
-    ##print(r);
-    return r1
-
-def normalize():
-    gt = generate();
-    while (count_tendencias(tendencias, gt) < len(tendencia_len)):
-        gt = generate();
-        
-    return gt
-
-def has_bad_connection_of_short(text):
-     r1 = False
-     for i in range(len(text.split(" ")) - 1):
-        if (len(text.split(" ")[i]) <= 3 and len(text.split(" ")[i +1]) <= 3):
-            r1 = True
-     return r1
-
-def has_bad_start_end(text):
-     r1 = False
-     for i in range(len(text.split(" ")) - 1):
-        if len(text.split(" ")[0]) < 3 and len(text.split(" ")[len(  text.split(" ")  )-2]) < 6:
-            r1 = True
-     return r1
-
-
-def has_bad_connection(text):
-    r1 = False
-    
-    sig = False
-    for i in range(len(text.split(" ")) - 1):
-        ##rint(text.split(" ")[i], text.split(" ")[i+1], len(text.split(" ")[i]))
-        #xit(0)
-        if has_bad_connection_of_short(text) or has_bad_start_end(text):
-           # print("bdjx")
-            #if has_good_start_end(text):
-            
-               #rint("hzhz")
-                if i == len(text.split(" ")) -1:
-                    sig = False
-                    
-                    
-            ##rint(text.split(" ")[i], len(text.split(" ")[i]))
-                
-                
-                r1= True
-                
-    #print(text, " & " ,(text.split(" ")[len(  text.split(" ")  )-2]))
-    if sig:
-        exit(0)
-     
-        
-    return r1
-
-
-normalizes = ""
-
-def connect():
-     global normalizes
-     normalizes = normalize()
-     #print(normalizes)
-     while has_bad_connection(normalizes):
-         #print(normalizes)
-         if has_bad_connection(normalizes):
-              normalizes = normalize()
-              
-     #print("fkn " , r, "  resp ", has_bad_connection(r))
-    #) print(normalizes, "+")
-     #exit(0)
-     
-     return normalizes
-
-
-def contar_good(text):
-    r = 0
-    for y in k:
-        #print(y)
-         if (text.find(y) == -1):
-              r = r + 1
-    return r
-
-def contar_bad(text):
-    r = 0
-    for y in n:
-        if (text.find(y) == -1):
-            r = r + 1
-    return r
-
-
-cg = 0;
-cb = 0;
-
-
-def apply_inteligence():
-    global cg
-    global cb
-    connect();
-    r1 = normalizes
-    cg = 0
-    cb = 0
-    cg = contar_good(r1);
-    cb = contar_bad(r1);
-    #print(r)
-    #print(cg, cb)
-    return r1
+    global gendslist
     
     
-rfm = ""
-
-def epocs(n):
-    global cg
-    global cb
-    global rfm
-    gt = apply_inteligence();
+    return gendslist[random.randint(0, len(gendslist)-1)]
+def generate(leng):
     
-    for k in range(n):
-        gt = apply_inteligence();
-        #print(gt)
-        if cg > cb:
-            #rint("bsnsm")
-            rfm = gt
-          #  print(gt)
-      ##  print(cg, cb:)
-    ##print(cg, cb)
+    global DIC
+    RY = ""
+    for i in range(leng):
+        rw = DIC[random.randint(0, len(DIC)-1)] 
+        if RY.find(rw) == -1:
+        #print(DIC[random.randint(0, len(DIC))-1])
+            RY = RY + rw + " "
+    #int(RY)
+    RY = RY + good_end()
+    #gerar texto comparar texto com pre gerados!
+    return RY
 
 
 
+gs = open("/storage/emulated/0/comentarios/good_sen.txt")
 
-epocs(500);
+D = fg.read().split("\n")
+GS = gs.read().split("\n")
 
 
-print(rfm);
-print(has_bad_connection(rfm))
-print(has_bad_connection_of_short(rfm))
+spacing = 4
+def is_between(sentence, letter, index):
+    actual_index = 0
+    
+    global spacing
+    R = False
+    for SL in sentence:
+        if SL == letter and index > actual_index - spacing and index < actual_index + spacing:
+            R = True
+        actual_index = actual_index + 1
+    
+    return R
+    
+
+def count_text(text):
+    global GS
+    
+    co = 0
+    
+    for sen in GS:
+        idx = 0
+        for L in text:
+            if is_between(sen, L, idx):
+                co = co + 1
+            idx = idx + 1
+    return co
+
+GC = generate(5)
+
+LASTING = 0
+
+H = ""
+
+def tendencia(text):
+    
+    tendencias = "gostei video eletricidade"
+    
+    c = 0
+    
+    for w in tendencias.split(" "):
+        c = c + text.find(w)
+    return c
+
+def exclude(text):
+    
+    tendencias = ""
+    
+    c = 0
+    
+    for w in tendencias.split(" "):
+        c = c + text.find(w)
+    return c
+
+def gt():
+    global LASTING
+    H = ""
+    LASTING = 0
+    MAXEX = 0
+    LTS = 0
+    for i in range(1800):
+        GC = generate(4)
+        #print(i, GC)
+        LTS = (0)
+        MAXEX = 10000
+    #print("hhhhh" ,GC)
+        if (count_text(GC)) > LASTING and tendencia(GC) > LTS and exclude(GC) < MAXEX:
+            LASTING = count_text(GC)
+            H = GC
+            LTS = tendencia(GC)
+            MAXEX = exclude(GC)
+       # print(GC)
+    return H
+
+print(count_text("otimo vidro gostei demais"))
+print(count_text("desgotei horrivel nada a ver"))
+
+for i in range(8):
+    print("generated", gt())
+#    print(generate(4))
+print("   ")
+for i in range(8):
+    print("test", generate(4))
